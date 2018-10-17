@@ -11,6 +11,7 @@ export class BabExpand {
 	@Prop() duration:number = 8000;
 	@Prop() text:string;
 	@Prop() effect:string = "typing";
+	@Prop() delay:number = 0;
 	
 	@State() currentText:string = "";
 	@State() currentTextArray:string[] = [];
@@ -27,8 +28,18 @@ export class BabExpand {
 		this.calculateStep();
 	}	
 	componentDidLoad(){
-		this.type();
+		this.start();
 	}
+	start(){
+		if(this.delay){
+			setTimeout(() => {
+				this.type();	
+			}, this.delay);
+		}else{
+			this.type();
+		}
+	}
+
 	type(){
 		const finish:any = ()=>{
 			clearInterval(this.animation);
@@ -56,6 +67,7 @@ export class BabExpand {
 			}
 		}, this.step);
 	}
+
 	calculateStep(){
 		this.step = Math.trunc(this.duration / this.text.length);
 	}
@@ -64,8 +76,9 @@ export class BabExpand {
 		this.counter = 0;
 		this.currentText ="";
 		this.currentTextArray = [];
+		this.finished = false;
 		this.calculateStep();
-		this.type();
+		this.start();
 	}	
 	render() {
 		let html:any;

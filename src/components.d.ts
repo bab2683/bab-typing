@@ -14,6 +14,7 @@ export namespace Components {
 
   interface BabTyping {
     'classes': string;
+    'delay': number;
     'duration': number;
     'effect': string;
     'reset': () => void;
@@ -21,6 +22,7 @@ export namespace Components {
   }
   interface BabTypingAttributes extends StencilHTMLAttributes {
     'classes'?: string;
+    'delay'?: number;
     'duration'?: number;
     'effect'?: string;
     'onTypingFinish'?: (event: CustomEvent) => void;

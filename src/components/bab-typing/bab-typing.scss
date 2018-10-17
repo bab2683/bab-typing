@@ -3,6 +3,7 @@
 		&:not(.finished) {
 			&::after {
 				content: "|";
+				font-family: monospace;
 			}
 		}
 	}
@@ -17,6 +18,12 @@
 			display: inline-block;
 			transform-origin: 0% 100%;
 			animation: 1000ms text-expand forwards;
+		}
+	}
+	&.translate {
+		.letter {
+			display: inline-block;
+			animation: 1000ms text-translate forwards;
 		}
 	}
 }
@@ -34,5 +41,13 @@
 	}
 	to {
 		transform: scale(1);
+	}
+}
+@keyframes text-translate {
+	from {
+		transform: translateX(200%);
+	}
+	to {
+		transform: translateX(0%);
 	}
 }
