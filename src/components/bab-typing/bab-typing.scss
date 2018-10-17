@@ -1,0 +1,38 @@
+.bab-typing {
+	.text {
+		&:not(.finished) {
+			&::after {
+				content: "|";
+			}
+		}
+	}
+	&.fade {
+		.letter {
+			opacity: 0;
+			animation: 1000ms text-fade forwards;
+		}
+	}
+	&.expand {
+		.letter {
+			display: inline-block;
+			transform-origin: 0% 100%;
+			animation: 1000ms text-expand forwards;
+		}
+	}
+}
+@keyframes text-fade {
+	from {
+		opacity: 0;
+	}
+	to {
+		opacity: 1;
+	}
+}
+@keyframes text-expand {
+	from {
+		transform: scale(0);
+	}
+	to {
+		transform: scale(1);
+	}
+}

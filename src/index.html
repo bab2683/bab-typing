@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html dir="ltr" lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0">
+	<title>Stencil Component Starter</title>
+	
+	<script src="/build/bab-typing.js"></script>
+	<style>
+		
+		.wrapper {
+			display: grid;
+			grid-template-columns: repeat(3, 1fr);
+			grid-gap: 1rem;
+		}
+		.cube{
+			width: 150px;
+			height: 150px;
+			border: 3px solid black;
+		}
+	</style>
+	
+</head>
+<body>
+	<div class="wrapper">
+		<bab-typing text="Francesco è in ritardo" duration="3000"></bab-typing>		
+		<bab-typing effect="fade" text="Come al solito" duration="3000"></bab-typing>
+		<bab-typing effect="expand" text="Come al solito" duration="3000"></bab-typing>
+	</div>
+</body>
+</html>
